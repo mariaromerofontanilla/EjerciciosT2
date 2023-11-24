@@ -1,5 +1,6 @@
 package bucles;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 /*
  * Este programa va de  cuántos números hay entre 1 y el numero que introduce el usuario y dice cuantos numeros primos ahi dentro de ese numero.
@@ -14,17 +15,25 @@ public class ejercicio02 {
 	public static void main(String[] args) {
 				// variable
 				// crear la variable num y la v ariable j
-				int num, j;
+				int num = 0, j;
 				// crear un boolean (true o false) de primo
 				boolean primo;
 				// contar primo = 0
 				int contPri=0;
 				// crear Scanner
 				Scanner sc = new Scanner(System.in);
-				// Imprime por pantalla de que intrpoduzcas un numero
-				System.out.println("Introduzca un numero: ");
-				// Scanner de la variable num
-				num = sc.nextInt();
+				
+				do {
+					try {
+						// Imprime por pantalla de que intrpoduzcas un numero
+						System.out.println("Introduzca un numero: ");
+						// Scanner de la variable num
+						num = sc.nextInt();
+					}catch(InputMismatchException e) {
+						System.out.println("Tipo de valor incorrecto");
+						sc.nextLine();
+					}
+				}while(num<0);
 				// for donde creamos una variable que dice que esta es igual a 2 y de que si es menor o mayor a numero se incremente
 				for(int i=2;i<=num;i++){
 					// primeo es igual a true

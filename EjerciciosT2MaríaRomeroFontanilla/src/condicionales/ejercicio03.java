@@ -33,9 +33,11 @@ public class ejercicio03 {
 
 				comidarestante = cantComidaComp - klComida;
 				// Calcular la ración de comida para cada animal dividiendo la comida restante entre el número de animales
-
+				if ( numAnimales > 0) {
 				racion = comidarestante / numAnimales;
-				
+				} else {
+					System.out.println("No se puede dividir por 0");
+				}
 				System.out.println(racion);
 				//cierre del Scanner
 				sc.close();

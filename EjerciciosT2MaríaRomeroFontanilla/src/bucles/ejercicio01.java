@@ -1,5 +1,6 @@
 package bucles;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 /*
  * Este pograma trata de  incremente la hora de un reloj. Se pedirán por teclado:
@@ -17,39 +18,64 @@ import java.util.Scanner;
 public class ejercicio01 {
 
 	public static void main(String[] args) {
-		// Variables
+				// Variables
 				// Variable de las horas
-				int hora;
+				int hora =-1;
 				// variable de los minutos
-				int minutos;
+				int minutos = -1;
 				// variable de los segundos
-				int segundos;
+				int segundos = -1;
 				// Variable de cuantos segundos quiere añadir
-				int cantSegundos;
+				int cantSegundos = -1;
 
 				// creacion del Scanner
 				Scanner sc = new Scanner(System.in);
-
+				do {
+					try {
 				// Imprime por pantalla de que introduzca la hora
 				System.out.println(" Introduzca la hora: ");
 				// Scanner de la variable hora
 				hora = sc.nextInt();
-
-				// Imprime por pantalla de que introduzca los segundos
+					}catch(InputMismatchException e) {
+						System.out.println("Tipo de valor incorrecto");
+						sc.nextLine();
+					}
+				}while(hora<0||hora>23);
+				do {
+					try {
+				// Imprime por pantalla de que introduzca los minutos
 				System.out.println(" Introduzca los minutos: ");
 				// Scanner de la variable minutos
 				minutos = sc.nextInt();
-
-				// Imprime por pantalla de que introduzcas los segundos
-				System.out.println(" Introduzca los segundos: ");
-				// Scanner de la variable segundos
-				segundos = sc.nextInt();
-
-				// Imprime por pantalla cuantos segundos quieres que se te implementen
-				System.out.println(" Introduzca la cantidad de segundos que quieres que se sume a tu hora dada anteriormente: ");
-				// Scanner de la variable de cuantos segundos quieres implementar
-				cantSegundos = sc.nextInt();
-
+					}catch(InputMismatchException e) {
+						System.out.println("Tipo de valor incorrecto");
+						sc.nextLine();
+					}
+				}while(minutos<0||minutos>59);
+				do {
+					try {
+						// Imprime por pantalla de que introduzcas los segundos
+						System.out.println(" Introduzca los segundos: ");
+						// Scanner de la variable segundos
+						segundos = sc.nextInt();
+					} catch (InputMismatchException e) {
+						System.out.println("Tipo de valor incorrecto");
+						sc.nextLine();
+					}
+				}while (segundos<0||segundos>59);
+				
+				do {
+					try {
+						// Imprime por pantalla de que introduzcas el incremento de segundos
+						System.out.println(" Introduzca los segundos que quieres sumarle: ");
+						// Scanner de la variable cantidad de segundos
+						cantSegundos = sc.nextInt();
+					} catch (InputMismatchException e) {
+						System.out.println("Tipo de valor incorrecto");
+						sc.nextLine();
+					}
+				}while (segundos<0);
+				
 				// if de que si la hora es menor o igual a 23 y los minutos son menor o igual a 59 y los segundops son menor o igual a 59 que haga lo siguiente 
 				if (hora <= 23 && minutos <= 59 && segundos <= 59) {
 					// for donde se crea la variable contador que diremos si contador es igual a 0 y contador es menor a la cantidad de segundos introducida contador se incrementa

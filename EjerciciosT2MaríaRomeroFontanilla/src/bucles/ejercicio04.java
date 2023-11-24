@@ -1,5 +1,6 @@
 package bucles;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 /*
  * Este ejercicio va de calcular el máximo común divisor de dos numero
@@ -14,17 +15,26 @@ public class ejercicio04 {
 	public static void main(String[] args) {
 				// variable
 				// crear la variable a, b menor y por ultimo la variable i todas numeros enteros
-				int a, b, menor, i=0;
+				int a = 0, b = 0, menor, i=0;
 				// Crear Scanner
 				Scanner sc = new Scanner(System.in);
-				// Imprime por pantalla de que introduzcas un numero
-				System.out.println("Introduce un numero: ");
-				// Scanner de la variable a
-				a = sc.nextInt();
-				// Imprime por pantalla de que introduzcas un numero
-				System.out.println("Introduce un numeros: ");
-				// Scanner de la variable b
-				b = sc.nextInt();
+				
+				do {
+					try {
+						// Imprime por pantalla de que introduzcas un numero
+						System.out.println("Introduce un numero: ");
+						// Scanner de la variable a
+						a = sc.nextInt();
+						// Imprime por pantalla de que introduzcas un numero
+						System.out.println("Introduce un numeros: ");
+						// Scanner de la variable b
+						b = sc.nextInt();
+					}catch(InputMismatchException e) {
+						System.out.println("Tipo de valor incorrecto");
+						sc.nextLine();
+					}
+				}while(a<0 && b<0);
+				
 				
 				// if de que si a es menor que b que haga lo siguiente
 				if (a >= 0 && b >= 0) {
